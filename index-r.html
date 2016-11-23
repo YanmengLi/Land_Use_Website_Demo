@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Land Use Allocation</title>
+
+	<!-- CSS -->
+	<link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<link href="assets/css/font-awesome.min.css" rel="stylesheet" media="screen">
+	<link href="assets/css/simple-line-icons.css" rel="stylesheet" media="screen">
+	<link href="assets/css/animate.css" rel="stylesheet">
+    
+	<script type="text/javascript" src="assets/js/jquery-1.11.1.min.js"></script>					  
+	<script type="text/javascript" src="assets/js/jquery.canvasjs.min.js"></script>
+	
+	<!-- chart demo1 -->
+	<script type="text/javascript">
+		$(function () {
+		//Better to construct options first and then pass it as a parameter
+			var options = {
+				title: {
+					text: "Chart Demo"
+				},
+                	animationEnabled: true,
+				data: [
+				{
+					type: "spline", //change it to line, area, column, pie, etc
+					dataPoints: [
+						{ x: 10, y: 10 },
+						{ x: 20, y: 12 },
+						{ x: 30, y: 8 },
+						{ x: 40, y: 14 },
+						{ x: 50, y: 6 },
+						{ x: 60, y: 24 },
+						{ x: 70, y: -4 },
+						{ x: 80, y: 10 }
+					]
+				}
+				]
+			};
+
+			$("#chartContainer1").CanvasJSChart(options);
+	});
+	</script>
+
+	<!-- chart demo2 -->
+	<script type="text/javascript">
+  	window.onload = function () {
+    var chart = new CanvasJS.Chart("chartContainer2",
+    {
+      title:{
+        text: "Elevation and Atmospheric Pressure"
+      },     
+      axisY :{
+        title: "Atmospheric Pressure",
+        suffix: " kPa"
+      },
+      animationEnabled: true,
+      axisX :{
+        title: "Elevations Above Sea Level",
+        suffix: " m"
+      },
+      data: [
+      {      
+        markerSize: 0, 
+        toolTipContent: "<span style='\"'color: {color};'\"'><strong>Elevation</strong></span> {x} m <br/><span style='\"'color: {color};'\"'><strong>Pressure</strong></span> {y} kPa",
+        type: "spline",
+        showInLegend: true,
+        legendText: "Computed for 15 deg. C at Sea Level",
+        dataPoints: [
+        {x: -1524 , y: 120.5},     
+        {x: -1372 , y: 118.5},     
+        {x: -1219, y: 116.5},     
+        {x: -1067, y: 114.6},     
+        {x: -914, y: 112.7},     
+        {x: -762 , y: 110.7},     
+        {x: -610 , y: 108.8},     
+        {x: -457 , y: 106.9},     
+        {x: -305 , y: 105},     
+        {x: -152 , y: 103.1},     
+        {x: 0 , y: 101.3},     
+        {x: 152 , y: 99.49},    
+        {x: 305 , y: 97.63},   
+        {x: 457 , y: 95.91},     
+        {x: 610 , y: 94.19},     
+        {x: 762 , y: 92.46},     
+        {x: 914 , y: 90.81},     
+        {x: 1067 , y: 89.15},     
+        {x: 1219 , y: 87.49},     
+        {x: 1372 , y: 85.91},     
+        {x: 1524 , y: 84.33},     
+        {x: 1829 , y: 81.22},     
+        {x: 2134 , y: 78.19},     
+        {x: 2438 , y: 75.22},     
+        {x: 2743 , y: 72.40},     
+        {x: 3048 , y: 69.64},     
+        {x: 4572 , y: 57.16},     
+        {x: 6096 , y: 46.61},     
+        {x: 7620 , y: 37.65},     
+        {x: 9144 , y: 30.13},     
+        {x: 10668 , y: 23.93},     
+        {x: 12192 , y: 18.82},     
+        {x: 13716 , y: 14.82},     
+        {x: 15240 , y: 11.65},     
+        {x: 16764 , y: 9.172},     
+        {x: 18288 , y: 7.24},    
+        {x: 21336 , y: 4.49},     
+        {x: 24384 , y: 2.8},     
+        {x: 27432, y: 1.76},     
+        {x: 30480, y: 1.12}     
+
+        ]
+      }             
+      
+      ]
+    });
+
+	chart.render();
+	}
+	</script>
+
+	<!-- Custom styles CSS -->
+	<link href="assets/css/style.css" rel="stylesheet" media="screen">
+    
+    <script src="assets/js/modernizr.custom.js"></script>
+    <script
+		src="http://maps.googleapis.com/maps/api/js">
+	</script>
+
+
+	// <script>
+	// 	/*
+	// 	 * loading google map
+	// 	function initialize() {
+ //  			var mapProp = {
+ //    			center:new google.maps.LatLng(51.508742,-0.120850),
+ //    			zoom:5,
+ //    			mapTypeId:google.maps.MapTypeId.ROADMAP
+ //  			};
+ //  			var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
+	// 	}
+	// 	google.maps.event.addDomListener(window, 'load', initialize);
+	// 	*/
+
+	// 	var map;
+	// 	var src = 'https://developers.google.com/maps/tutorials/kml/westcampus.kml';
+
+	// 	/**
+ // 		 * Initializes the map and calls the function that creates polylines.
+ // 		 */
+	// 	function initialize() {
+ //  			map = new google.maps.Map(document.getElementById('googleMap'), {
+ //    		center: new google.maps.LatLng(-19.257753, 146.823688),
+ //        	zoom: 2,
+ //    		mapTypeId: google.maps.MapTypeId.TERRAIN
+ //  			});
+ //  			loadKmlLayer(src, map);
+	// 	}
+
+	// 	/**
+ // 		 * Adds a KMLLayer based on the URL passed. Clicking on a marker
+ // 		 * results in the balloon content being loaded into the right-hand div.
+ // 		 * @param {string} src A URL for a KML file.
+ //  		 */
+	// 	function loadKmlLayer(src, map) {
+ //  			var kmlLayer = new google.maps.KmlLayer(src, {
+ //    			suppressInfoWindows: true,
+ //    			preserveViewport: false,
+ //    			map: map
+ //   			});
+ //  			google.maps.event.addListener(kmlLayer, 'click', function(event) {
+ //    			var content = event.featureData.infoWindowHtml;
+ //    			var testimonial = document.getElementById('capture');
+ //    			testimonial.innerHTML = content;
+ //  			});
+	// 	}
+
+	// 	google.maps.event.addDomListener(window, 'load', initialize);
+	// </script>
+       
+</head>
+<body>
+
+	<!-- Preloader -->
+
+	<div id="preloader">
+		<div id="status"></div>
+	</div>
+
+	<!-- Home start -->
+
+	<section id="home" class="pfblock-image screen-height">
+        <div class="home-overlay"></div>
+		<div class="intro">
+			<div class="start">Singapore Road Network</div>
+			<h1>Interactive Land Use Allocation</h1>
+			<div class="start">Support System</div>
+		</div>
+
+        <a href="#input">
+		<div class="scroll-down">
+            <span>
+                <i class="fa fa-angle-down fa-2x"></i>
+            </span>
+		</div>
+        </a>
+
+	</section>
+
+	<!-- Home end -->
+
+	<!-- Navigation start -->
+
+	<header class="header">
+
+		<nav class="navbar navbar-custom" role="navigation">
+
+			<div class="container">
+
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#custom-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="index.html">Land Use</a>
+				</div>
+
+				<div class="collapse navbar-collapse" id="custom-collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#home">Home</a></li>
+						<li><a href="#input">Input</a></li>
+                        <li><a href="#map">Map</a></li>
+                        <li><a href="#chart">Chart</a></li>
+					</ul>
+				</div>
+
+			</div><!-- .container -->
+
+		</nav>
+
+	</header>
+
+	<!-- Navigation end -->
+
+    <!-- Input start -->
+
+	<section id="input" class="pfblock pfblock-gray">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-sm-6 col-sm-offset-3">
+
+					<div class="pfblock-header">
+						<h2 class="pfblock-title">Please enter parameter values</h2>
+						<div class="pfblock-line"></div>		
+					</div>
+
+				</div>
+
+			</div><!-- .row -->
+
+			<div class="row">
+
+				<div class="col-sm-6 col-sm-offset-3">
+
+					<form id="contact-form" role="form">
+						<div class="ajax-hidden">
+							
+							<div class="form-group wow fadeInUp">
+								<label class="sr-only" for="threshold">Threshold</label>
+								<input type="text" id="threshold" class="form-control" name="threshold" placeholder="Threshold">
+							</div>
+
+							<div class="form-group wow fadeInUp" data-wow-delay=".1s">
+								<label class="sr-only" for="genarationgap">Generation GAP</label>
+								<input type="text" id="generationgap" class="form-control" name="genarationgap" placeholder="Generation GAP">
+							</div>
+
+							<div class="form-group wow fadeInUp" data-wow-delay=".2s">
+								<label class="sr-only" for="nvar">NVAR</label>
+								<input type="text" id="nvar" class="form-control" name="nvar" placeholder="NVAR">
+							</div>
+
+							<div class="form-group wow fadeInUp" data-wow-delay=".3s">
+								<label class="sr-only" for="nobj">NOBJ</label>
+								<input type="text" id="nobj" class="form-control" name="nobj" placeholder="NOBJ">
+							</div>
+
+							<div class="form-group wow fadeInUp" data-wow-delay=".4s">
+								<label class="sr-only" for="nind">NIND</label>
+								<input type="text" id="nind" class="form-control" name="nind" placeholder="NIND">
+							</div>
+
+							<div class="form-group wow fadeInUp" data-wow-delay=".5s">
+								<label class="sr-only" for="iteration">Iteration</label>
+								<input type="text" id="iteration" class="form-control" name="iteration" placeholder="Iteration">
+							</div>
+
+							<div class="form-group wow fadeInUp" data-wow-delay=".6s">
+								<label class="sr-only" for="weight1">Weight of OBJ1</label>
+								<input type="text" id="weight1" class="form-control" name="weight1" placeholder="Weight of OBJ1">
+							</div>
+
+							<div class="form-group wow fadeInUp" data-wow-delay=".7s">
+								<label class="sr-only" for="weight2">Weight of OBJ2</label>
+								<input type="text" id="weight2" class="form-control" name="weight2" placeholder="Weight of OBJ2">
+							</div>
+
+							<div class="form-group wow fadeInUp" data-wow-delay=".8s">
+								<label class="sr-only" for="weight3">Weight of OBJ3</label>
+								<input type="text" id="weight3" class="form-control" name="weight3" placeholder="Weight of OBJ3">
+							</div>
+
+							<div class="form-group wow fadeInUp" data-wow-delay=".9s">
+								<label class="sr-only" for="weight4">Weight of OBJ4</label>
+								<input type="text" id="weight4" class="form-control" name="weight4" placeholder="Weight of OBJ4">
+							</div>
+
+							<div class="form-group wow fadeInUp" data-wow-delay="1s">
+								<label class="sr-only" for="weight5">Weight of OBJ5</label>
+								<input type="text" id="weight5" class="form-control" name="weight5" placeholder="Weight of OBJ5">
+							</div>
+
+							<button type="submit" class="btn btn-lg btn-block wow fadeInUp" data-wow-delay="1.1s">Submit</button>
+						</div>
+						<div class="ajax-response"></div>
+					</form>
+
+				</div>
+
+			</div><!-- .row -->
+		</div><!-- .container -->
+
+	</section>
+
+	<!-- Input end -->
+    
+	<!-- map start -->
+
+	<section id="map" class="pfblock">
+		<!-- <div id="googleMap" style="width:100%;height:750px;"></div> -->
+		<iframe src="https://www.google.com/maps/d/embed?mid=zpn-MuCurUHc.kPmUd5E7QpuU" width="100%" height="750"></iframe>
+	</section>
+
+	<!-- map end -->
+    
+    <!-- chart start -->
+    
+    <section class="pfblock pfblock-gray" id="chart">
+		
+			<!-- <div id="image">
+				<center><img src="assets/images/chart.png" style="height:580px; width:75%;"></center>
+			</div> -->
+		<div class="row">
+			<div class="col-md-6" id="chartContainer1" style="height: 335px; width: 50%;"></div>
+			<div class="col-md-6" id="chartContainer2" style="height: 335px; width: 50%;"></div>
+		</div>
+    </section>
+    
+    <!-- Skills end -->
+
+	
+	<!-- Scroll to top -->
+
+	<div class="scroll-up">
+		<a href="#home"><i class="fa fa-angle-up"></i></a>
+	</div>
+    
+    <!-- Scroll to top end-->
+
+	<!-- Javascript files -->
+
+    <!-- <script src="assets/js/jquery-1.11.1.min.js"></script> -->
+	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+	<script src="assets/js/jquery.parallax-1.1.3.js"></script>
+	<script src="assets/js/imagesloaded.pkgd.js"></script>
+	<script src="assets/js/jquery.sticky.js"></script>
+	<script src="assets/js/smoothscroll.js"></script>
+	<script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/jquery.easypiechart.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
+    <script src="assets/js/jquery.cbpQTRotator.js"></script>
+	<script src="assets/js/custom.js"></script>
+	
+
+</body>
+</html>

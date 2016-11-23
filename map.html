@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #map-canvas {
+        width: 600px;
+        height: 400px;
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+
+<script>
+  function initialize() {
+      var mapCanvas = document.getElementById('map-canvas');
+      var mapOptions = {
+        //center: new google.maps.LatLng(44.5403, -78.5463),
+        center: new google.maps.LatLng(1.3147308,103.8470128),
+        zoom: 13,
+        mapTypeId: google.maps.MapTypeId.ROADMAP // TERRAIN
+      }
+      var map = new google.maps.Map(mapCanvas, mapOptions);
+
+
+      var kmlUrl = 'http://ssl.schogini.com/rebecca/Land_Use_Website_Demo/westcampus.kml';
+      // var kmlUrl = 'http://maps.google.com/maps?q=http://ssl.schogini.com/rebecca/Land_Use_Website_Demo/roadNetwork.kmz';
+      // var kmlUrl = 'http://ssl.schogini.com/rebecca/Land_Use_Website_Demo/test.kml';
+      var kmlUrl = 'http://ssl.schogini.com/rebecca/Land_Use_Website_Demo/doc.kml?aaa';
+      var kmlUrl = 'http://ssl.schogini.com/rebecca/Land_Use_Website_Demo/kml.php?aaaa.kml';
+      //var kmlUrl = 'http://ssl.schogini.com/rebecca/Land_Use_Website_Demo/hundred.kml';
+      var kmlOptions = {
+        //suppressInfoWindows: true,
+        //preserveViewport: false,
+        map: map
+      };
+      var kmlLayer = new google.maps.KmlLayer(kmlUrl, kmlOptions);
+  }
+  google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+  </head>
+  <body>
+    <div id="map-canvas2" style="position: relative;top:200px;">
+    <div id="map-canvas" style="width: 400px; height: 300px; display: block; overflow: hidden; transform: translateZ(0px); background-color: rgb(229, 227, 223);"></div></div>
+  </body>
+</html>

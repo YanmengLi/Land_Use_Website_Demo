@@ -1,0 +1,7 @@
+[09-Jun-2015 21:45:56 America/Detroit] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/chinnu/public_html/rebecca/Land_Use_Website_Demo/mapping/parser.php on line 78
+[25-Jun-2015 02:30:47 America/Detroit] PHP Warning:  file(mapping/ParetoSolutions.csv) [<a href='function.file'>function.file</a>]: failed to open stream: No such file or directory in /home/chinnu/public_html/rebecca/Land_Use_Website_Demo/parser.php on line 6
+[25-Jun-2015 02:30:48 America/Detroit] PHP Warning:  Invalid argument supplied for foreach() in /home/chinnu/public_html/rebecca/Land_Use_Website_Demo/parser.php on line 23
+[25-Jun-2015 02:31:20 America/Detroit] PHP Warning:  file(mapping/ParetoSolutions.csv) [<a href='function.file'>function.file</a>]: failed to open stream: No such file or directory in /home/chinnu/public_html/rebecca/Land_Use_Website_Demo/parser.php on line 6
+[25-Jun-2015 02:31:20 America/Detroit] PHP Warning:  Invalid argument supplied for foreach() in /home/chinnu/public_html/rebecca/Land_Use_Website_Demo/parser.php on line 23
+[25-Jun-2015 02:31:53 America/Detroit] PHP Warning:  file(mapping/ParetoSolutions.csv) [<a href='function.file'>function.file</a>]: failed to open stream: No such file or directory in /home/chinnu/public_html/rebecca/Land_Use_Website_Demo/parser.php on line 6
+[25-Jun-2015 02:31:53 America/Detroit] PHP Warning:  Invalid argument supplied for foreach() in /home/chinnu/public_html/rebecca/Land_Use_Website_Demo/parser.php on line 23
